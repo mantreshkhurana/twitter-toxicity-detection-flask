@@ -83,7 +83,7 @@ Since this project took <12 hours to make you may find some bugs or you may want
 After forking:
 
 ```bash
-git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-flask.git
+git clone https://github.com/<your-username>/twitter-toxicity-detection-flask.git
 cd twitter-toxicity-detection-flask
 git checkout -b <your-branch-name>
 # After adding your changes
