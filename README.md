@@ -66,7 +66,7 @@ twitter-toxicity-detection-app/
 │   ├── css/
 │   │   └── style.css
 │   └── js/
-│       └── main.js
+│       └── script.js
 ├── templates/
 │   ├── index.html
 │   └── results.html
