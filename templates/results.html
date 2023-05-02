@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twitter Hate Speech Detection - Results</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
+  </head>
+  <body class="light">
+    <header>
+      <a href="/"><h1>Twitter Hate Speech Detection</h1></a>
+      <div class="toggle-switch">
+        <input type="checkbox" id="toggle" />
+        <label for="toggle"></label>
+      </div>
+    </header>
+
+    <div class="results">
+      <div class="profile">
+        <img
+          src="{{ tweets[0].user.profile_image_url_https }}"
+          height="80"
+          width="80"
+          alt="{{ tweets[0].user.name }}"
+        />
+      </div>
+      <h2 align="center">Results for @{{ username }}</h2>
+      <p>Number of posts fetched: {{ num_total }}</p>
+      <p>Number of hateful posts: {{ num_hateful }}</p>
+      <p>Hate Speech Ratio: {{ hate_speech_ratio }}%</p>
+      <div class="chart-button">
+        <a href="#"><i class="fas fa-chart-bar"></i></a>
+      </div>
+
+      <hr />
+
+      {% for tweet in tweets %}
+      <div
+        class="tweet {% if is_toxic(tweet.full_text) %}red{% else %}green{% endif %}"
+      >
+        <div class="avatar">
+          <img
+            src="{{ tweet.user.profile_image_url_https }}"
+            alt="{{ tweet.user.name }}"
+          />
+        </div>
+        <div class="content">
+          <div class="header">
+            <span class="name">{{ tweet.user.name }}</span>
+            <span class="username">@{{ tweet.user.screen_name }}</span>
+            <span class="timestamp"
+              >{{ tweet.created_at.strftime('%I:%M %p - %d %b %Y') }}</span
+            >
+          </div>
+          <p class="tweet-text">{{ tweet.full_text }}</p>
+          <div class="actions">
+            <i class="far fa-heart"></i>
+            <span class="count">{{ format_number(tweet.favorite_count) }}</span>
+            <i class="fas fa-retweet"></i>
+            <span class="count">{{ format_number(tweet.retweet_count) }}</span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <br><br>
+    <footer>
+      <p>
+        Created by
+        <a href="https://github.com/mantreshkhurana" target="_blank"
+          >Mantresh Khurana</a
+        >
+      </p>
+    </footer>
+
+    <script>
+      document.querySelector('.chart-button a').addEventListener('click', function() {
+        var popupWindow = window.open('', 'Chart', 'width=450,height=480');
+        var ctx = popupWindow.document.createElement('canvas');
+        popupWindow.document.body.appendChild(ctx);
+        var myPieChart = new Chart(ctx, {
+          type: 'pie',
+          data: {
+            labels: ['Non-Hateful', 'Hateful'],
+            datasets: [{
+              data: [100 - {{ hate_speech_ratio }}, {{ hate_speech_ratio }}],
+              backgroundColor: ['#00FF40', '#FF0037']
+            }]
+          },
+          options: {
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'Hate Speech Ratio'
+              }
+            }
+          }
+        });
+        myPieChart.update();
+      });
+    </script>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

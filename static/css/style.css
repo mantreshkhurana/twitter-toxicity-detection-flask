@@ -1,0 +1,321 @@
+body {
+  margin: 0;
+  padding: 0;
+  font: 16px/1.5 sans-serif;
+}
+
+h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #fff;
+  border-bottom: 2px solid #ccc;
+}
+
+header.dark {
+  background: #222;
+  color: #fff;
+  border-bottom: 2px solid #444;
+}
+
+header.dark h1 {
+  color: #fff;
+}
+
+.search-bar {
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: center;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 40px auto;
+  max-width: 1000px;
+}
+
+.search-container {
+  display: flex;
+}
+
+.search-container input[type="number"] {
+  flex: 0;
+  padding: 0px;
+  outline: none;
+  font-size: 16px;
+  transition: border-color 0.5s ease;
+  background-color: #f7f7f7;
+  color: #333;
+  border: none
+}
+
+body.dark .search-container input[type="number"] {
+  background-color: #444;
+  color: #fff;
+  border-color: #444;
+}
+
+.search-container input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 15px 0 0 15px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.5s ease;
+}
+
+.search-container button[type="submit"] {
+  flex: 0;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 0 15px 15px 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.5s ease;
+}
+
+footer {
+  clear: both;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 14px;
+  color: #888;
+  margin-top: auto;
+}
+
+footer a {
+  color: rgb(143, 143, 255);
+}
+
+footer.dark a {
+  color: rgb(133, 133, 255);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.toggle-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin-bottom: 0;
+}
+
+.toggle-switch input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-switch label {
+  display: block;
+  width: 120%;
+  height: 120%;
+  background: #ccc;
+  border-radius: 17px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.5s ease;
+}
+
+.toggle-switch label::before {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 15px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: transform 0.5s ease;
+}
+
+.toggle-switch input[type="checkbox"]:checked + label {
+  background: #3498db;
+}
+
+.toggle-switch input[type="checkbox"]:checked + label::before {
+  transform: translateX(26px);
+}
+
+body.dark {
+  background: #1c1c1c;
+  color: #fff;
+}
+
+body.dark h1 {
+  color: #fff;
+}
+
+body.dark header {
+  background: #222;
+  color: #fff;
+  border-bottom: 2px solid #444;
+}
+
+body.dark .search-bar input[type="text"],
+body.dark .search-bar button[type="submit"] {
+  background: #444;
+  color: #fff;
+  border-color: #444;
+}
+
+body.dark footer {
+  background: #333;
+}
+
+body.light {
+  background: #fff;
+  color: #333;
+}
+
+body.light h1 {
+  color: #333;
+}
+
+body.light .search-bar input[type="text"],
+body.light .search-bar button[type="submit"] {
+  background: #f7f7f7;
+  color: #333;
+  border-color: #ccc;
+}
+
+body.light footer {
+  background: #eee;
+}
+
+p {
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.tweet {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tweet .avatar img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.tweet-text {
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+.results .chart-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.results .chart-button a {
+  width: 20px;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #0077b6;
+  color: #fff;
+}
+
+.results .chart-button a:hover {
+  background-color: #023e8a;
+}
+
+.results .tweet {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  position: relative;
+}
+
+.results .report-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.results .tweet.red .tweet-text {
+  color: red;
+}
+
+.results .tweet.green .tweet-text {
+  color: green;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.profile img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 100%;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.popup h3 {
+  font-size: 24px;
+  margin: 0 0 16px;
+}
+
+.popup p {
+  font-size: 16px;
+  margin: 0 0 16px;
+}
+
+.popup a {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 8px;
+  border-radius: 4px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #4caf50;
+}

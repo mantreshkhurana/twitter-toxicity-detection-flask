@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twitter Hate Speech Detection</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body class="light">
+    <header>
+      <a href="/"><h1>Twitter Hate Speech Detection</h1></a>
+      <div class="toggle-switch">
+        <input type="checkbox" id="toggle" />
+        <label for="toggle"></label>
+      </div>
+    </header>
+
+    <div class="search-bar">
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/hate_speech.svg') }}"
+          height="300"
+          alt="Hate Speech"
+        />
+      </div>
+      <form action="/results" method="POST">
+        <div class="search-container">
+          <input
+            type="text"
+            placeholder="Twitter username..."
+            name="username"
+            required
+          />
+          <input
+            type="number"
+            placeholder="No. of tweets to fetch..."
+            name="posts"
+            min="1"
+            max="100"
+            value="10"
+            required
+          />
+          <button type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+
+    <footer>
+      <p>
+        Created by
+        <a href="https://github.com/mantreshkhurana" target="_blank"
+          >Mantresh Khurana</a
+        >
+      </p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
