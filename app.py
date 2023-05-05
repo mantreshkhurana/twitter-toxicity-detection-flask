@@ -92,12 +92,21 @@ def results():
     num_hateful = sum(labels)
     num_total = len(tweets)
     hate_speech_ratio = num_hateful / num_total * 100
-    
+
     # Compute the average toxicity percentage
     toxicity = sum([model.predict_proba(vectorizer.transform([tweet.full_text]))[0][1] for tweet in tweets]) / num_total
 
+    # Get user's followers and following
+    user = api.get_user(screen_name=username)
+    followers_count = user.followers_count
+    following_count = user.friends_count
+
+    # Convert the counts to K, M, or B format
+    followers_count = format_number(followers_count)
+    following_count = format_number(following_count)
+
     # Render the results template
-    return render_template('results.html', username=username, posts=posts, num_total=num_total, num_hateful=num_hateful, hate_speech_ratio=hate_speech_ratio, tweets=tweets, format_number=format_number, is_toxic=is_toxic, toxicity=toxicity)
+    return render_template('results.html', username=username, posts=posts, num_total=num_total, num_hateful=num_hateful, hate_speech_ratio=hate_speech_ratio, tweets=tweets, format_number=format_number, is_toxic=is_toxic, toxicity=toxicity, followers_count=followers_count, following_count=following_count)
 
 if __name__ == '__main__':
     app.run(debug=True)

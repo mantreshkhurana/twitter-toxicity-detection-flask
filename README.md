@@ -20,6 +20,10 @@ This is a Flask web application that allows users to search for a Twitter user's
 | ![App Screenshot](./screenshots/screenshot-1-light.png) | ![App Screenshot](./screenshots/screenshot-1-dark.png)
 | ![App Screenshot](./screenshots/screenshot-2-light.png) | ![App Screenshot](./screenshots/screenshot-2-dark.png)
 
+You can see a pie chart which portrays the percentage of tweets that are toxic and non-toxic. It can be viewed by clicking on the view Pie Chart button. bellow `following` and `followers` count.
+
+<img src="./screenshots/screenshot-3.png" width="300">
+
 ## Installation
 
 You may need to install some dependencies before running the program(some of the modules cannot be installed directly by using `requirements.txt`).
