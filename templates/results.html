@@ -36,7 +36,7 @@
       <p>Hate Speech Ratio: {{ hate_speech_ratio }}%</p>
       <p>{{ followers_count }} Followers | {{ following_count }} Following</p>
       <div class="chart-button">
-        <a href="#"><i class="fas fa-chart-bar"></i></a>
+        <a href="#"><i class="fas fa-chart-pie"></i></a>
       </div>
 
       <hr />
@@ -89,10 +89,12 @@
           type: 'pie',
           data: {
             labels: ['Non-Hateful', 'Hateful'],
-            datasets: [{
-              data: [100 - {{ hate_speech_ratio }}, {{ hate_speech_ratio }}],
-              backgroundColor: ['#00FF40', '#FF0037']
-            }]
+            datasets: [
+              {
+                data: [100 - {{ hate_speech_ratio }}, {{ hate_speech_ratio }}],
+                backgroundColor: ['#00FF40', '#FF0037'],
+              },
+            ],
           },
           options: {
             plugins: {
@@ -101,10 +103,10 @@
               },
               title: {
                 display: true,
-                text: 'Hate Speech Ratio'
-              }
-            }
-          }
+                text: 'Hate Speech Ratio',
+              },
+            },
+          },
         });
         myPieChart.update();
       });
