@@ -319,3 +319,9 @@ p {
   color: #fff;
   background-color: #4caf50;
 }
+
+/* Error */
+.error-body{
+  color: red;
+  text-shadow: 2px 2px 5px white;
+}

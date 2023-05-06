@@ -82,8 +82,12 @@ def results():
     try:
         for tweet in tweepy.Cursor(api.user_timeline, screen_name=username, tweet_mode='extended').items(posts):
             tweets.append(tweet)
-    except tweepy.TweepError as e:
-        return render_template('error.html', error=str(e))
+# Old version of tweepy: TweepError was replaced with TweepyException
+    except tweepy.TweepyException:     
+        error_message = 'An error occurred. Please try again later.'
+        return render_template('index.html',error_message=error_message) 
+    
+# this used to render error.html, the file did not exist so I changed it to index.html with error message
 
     # Perform hate speech detection on the tweets
     labels = [is_toxic(tweet.full_text) for tweet in tweets]

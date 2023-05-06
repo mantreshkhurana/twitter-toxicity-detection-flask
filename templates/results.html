@@ -30,7 +30,7 @@
           alt="{{ tweets[0].user.name }}"
         />
       </div>
-      <h2 align="center">Results for @{{ username }}</h2>
+      <h2>Results for @{{ username }}</h2>
       <p>Number of posts fetched: {{ num_total }}</p>
       <p>Number of hateful posts: {{ num_hateful }}</p>
       <p>Hate Speech Ratio: {{ hate_speech_ratio }}%</p>
@@ -90,7 +90,7 @@
           data: {
             labels: ['Non-Hateful', 'Hateful'],
             datasets: [{
-              data: [100 - {{ hate_speech_ratio }}, {{ hate_speech_ratio }}],
+              data: [100 - {hate_speech_ratio}, { hate_speech_ratio }],
               backgroundColor: ['#00FF40', '#FF0037']
             }]
           },
