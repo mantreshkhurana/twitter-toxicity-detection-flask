@@ -82,7 +82,7 @@ def results():
     try:
         for tweet in tweepy.Cursor(api.user_timeline, screen_name=username, tweet_mode='extended').items(posts):
             tweets.append(tweet)
-    except tweepy.TweepError as e:
+    except tweepy.TweepyException as e:
         return render_template('error.html', error=str(e))
 
     # Perform hate speech detection on the tweets
