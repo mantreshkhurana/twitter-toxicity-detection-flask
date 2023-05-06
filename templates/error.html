@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twitter Toxicity Detection - Error</title>
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='images/favicon.ico') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body class="light">
+    <header>
+      <a href="/"><h1>Twitter Toxicity Detection</h1></a>
+      <div class="toggle-switch">
+        <input type="checkbox" id="toggle" />
+        <label for="toggle"></label>
+      </div>
+    </header>
+
+    <div class="error-container">
+      <h2>Error</h2>
+      <p>
+        {{ error }}
+        <br>
+        <b> Check the '.env' file and make sure you have the correct credentials.</b>
+      </p>
+        <br>
+      <button class="error-button">
+        <a href="/">Go back</a>
+      </button>
+    </div>
+
+    <footer>
+      <p>
+        Created by
+        <a href="https://github.com/mantreshkhurana" target="_blank"
+          >Mantresh Khurana</a
+        >
+      </p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
