@@ -35,6 +35,9 @@ You can see a pie chart which portrays the percentage of tweets that are toxic a
 You may need to install some dependencies before running the program(some of the modules cannot be installed directly by using `requirements.txt`).
 
 Get Twitter API keys from [here](https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api).
+
+> Note: Make sure to apply for Twitter Elevated Access to use the Twitter API v2 endpoints, without elevated access you will not be able to use this app.
+
 To get started with this project, follow these steps:
 
 ```bash
