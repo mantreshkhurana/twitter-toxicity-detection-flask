@@ -349,3 +349,16 @@ p {
   color: #fff;
   text-decoration: none;
 }
+
+.error-message{
+  margin-bottom: -30px;
+  color: red;
+}
+
+.error-info a{
+  color: #4695eb;
+}
+
+.error-info{
+  margin-bottom: -20px;
+}

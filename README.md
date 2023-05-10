@@ -74,7 +74,7 @@ Navigate to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in your web browser
 twitter-toxicity-detection-flask/
 ├── app.py
 ├── models/
-│   ├── hate_speech_model.csv
+│   └── hate_speech_model.csv
 ├── static/
 │   ├── css/
 │   │   └── style.css
@@ -82,7 +82,8 @@ twitter-toxicity-detection-flask/
 │       └── script.js
 ├── templates/
 │   ├── index.html
-│   └── results.html
+│   ├── results.html
+│   └── error.html
 ├── .env
 ├── .gitignore
 ├── README.md

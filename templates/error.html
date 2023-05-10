@@ -22,11 +22,9 @@
 
     <div class="error-container">
       <h2>Error</h2>
-      <p>
-        {{ error }}
+        <p class="error-message">{{ error }}</p>
         <br>
-        <b> Check the '.env' file and make sure you have the correct credentials.</b>
-      </p>
+        <p class="error-info"><b>Check the '.env' file and make sure you have the correct credentials.<br>You do need Twitter Elevated API access it is free for 2M Tweets/Month<br> Please check the <a href="https://developer.twitter.com/en/portal/products/elevated">Twitter Elevated API</a> for more information.</b></p>
         <br>
       <button class="error-button">
         <a href="/">Go back</a>
