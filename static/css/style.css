@@ -79,7 +79,6 @@ body.dark .search-container input[type="number"] {
   border-radius: 15px 0 0 15px;
   font-size: 16px;
   outline: none;
-  transition: border-color 0.5s ease;
 }
 
 .search-container button[type="submit"] {
@@ -91,7 +90,6 @@ body.dark .search-container input[type="number"] {
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  transition: background 0.5s ease;
 }
 
 footer {
@@ -104,11 +102,11 @@ footer {
 }
 
 footer a {
-  color: rgb(143, 143, 255);
+  color: rgb(83, 83, 255);
 }
 
 footer.dark a {
-  color: rgb(133, 133, 255);
+  color: rgb(83, 83, 255);
 }
 
 footer {

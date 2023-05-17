@@ -44,6 +44,8 @@ model.fit(x_train, y_train)
 app = Flask(__name__)
 
 # Function to format number
+
+
 def format_number(num):
     if num < 1000:
         return str(num)
@@ -55,6 +57,8 @@ def format_number(num):
         return '{:.1f}B'.format(num / 1000000000)
 
 # Function to check if a tweet contains hate speech
+
+
 def is_toxic(text):
     vec = vectorizer.transform([text])
     percentage = round((model.predict_proba(vec)[0][1] * 100), 2)
@@ -65,9 +69,12 @@ def is_toxic(text):
         return False
 
 # Flask app setup
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/results', methods=['GET', 'POST'])
 def results():
@@ -94,10 +101,14 @@ def results():
     hate_speech_ratio = num_hateful / num_total * 100
 
     # Compute the average toxicity percentage
-    toxicity = sum([model.predict_proba(vectorizer.transform([tweet.full_text]))[0][1] for tweet in tweets]) / num_total
+    toxicity = sum([model.predict_proba(vectorizer.transform([tweet.full_text]))[
+                   0][1] for tweet in tweets]) / num_total
 
     # Get user's followers and following
     user = api.get_user(screen_name=username)
+
+    name = user.name
+
     followers_count = user.followers_count
     following_count = user.friends_count
 
@@ -106,7 +117,8 @@ def results():
     following_count = format_number(following_count)
 
     # Render the results template
-    return render_template('results.html', username=username, posts=posts, num_total=num_total, num_hateful=num_hateful, hate_speech_ratio=hate_speech_ratio, tweets=tweets, format_number=format_number, is_toxic=is_toxic, toxicity=toxicity, followers_count=followers_count, following_count=following_count)
+    return render_template('results.html', username=username, posts=posts, num_total=num_total, num_hateful=num_hateful, hate_speech_ratio=hate_speech_ratio, tweets=tweets, format_number=format_number, is_toxic=is_toxic, toxicity=toxicity, followers_count=followers_count, following_count=following_count, name=name)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
