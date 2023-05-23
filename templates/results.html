@@ -11,6 +11,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
+    <style>
+      .tweet a {
+        color: blue;
+      }
+    </style>
   </head>
   <body class="light">
     <header>
@@ -60,7 +65,18 @@
               >{{ tweet.created_at.strftime('%I:%M %p - %d %b %Y') }}</span
             >
           </div>
-          <p class="tweet-text">{{ tweet.full_text }}</p>
+          <p class="tweet-text">
+            {% if 'http' in tweet.full_text %}
+            {% for word in tweet.full_text.split() %}
+            {% if 'http' in word %}
+            <a href="{{ word }}" target="_blank">{{ word }}</a>
+            {% else %}
+            {{ word }}{% endif %}
+            {% endfor %}
+            {% else %}
+            {{ tweet.full_text }}
+            {% endif %}
+          </p>
           <div class="actions">
             <i class="far fa-heart"></i>
             <span class="count">{{ format_number(tweet.favorite_count) }}</span>
