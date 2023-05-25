@@ -7,6 +7,9 @@ from dotenv import load_dotenv
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 
+# Set debug to False when deploying to production
+debug = True
+
 load_dotenv()
 
 # Set up Tweepy API client
@@ -117,8 +120,20 @@ def results():
     following_count = format_number(following_count)
 
     # Render the results template
-    return render_template('results.html', username=username, posts=posts, num_total=num_total, num_hateful=num_hateful, hate_speech_ratio=hate_speech_ratio, tweets=tweets, format_number=format_number, is_toxic=is_toxic, toxicity=toxicity, followers_count=followers_count, following_count=following_count, name=name)
-
+    return render_template('results.html',
+        username=username,
+        posts=posts,
+        num_total=num_total,
+        num_hateful=num_hateful,
+        hate_speech_ratio=hate_speech_ratio,
+        tweets=tweets,
+        format_number=format_number,
+        is_toxic=is_toxic,
+        toxicity=toxicity,
+        followers_count=followers_count,
+        following_count=following_count,
+        name=name,
+    )
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=debug)
