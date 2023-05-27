@@ -72,13 +72,16 @@ Navigate to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in your web browser
 ## Features
 
 - [x] Search for a Twitter user's recent tweets.
-- [ ] Get a toxicity score for each tweet.
+- [x] Dark/Light mode.
 - [x] View a pie chart for profile's toxicity.
 - [x] View user's profile picture, name, username, bio, location, website, following, followers, and tweet count.
 - [x] View images/videos in tweets.
 - [x] View retweets and likes count for each tweet.
 - [x] View the date and time of each tweet.
 - [x] View the source of each tweet.
+- [x] Simple bot protection.
+- [ ] Get a toxicity score for each tweet.
+- [ ] Images/Videos toxicity detection.
 
 ## Project Structure
 
