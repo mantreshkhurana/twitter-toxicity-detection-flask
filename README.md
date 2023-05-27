@@ -18,7 +18,7 @@ This is a Flask web application that allows users to search for a Twitter user's
 
 ### Demo Video
 
-https://github.com/mantreshkhurana/twitter-toxicity-detection-flask/assets/120998049/9cfbc729-0594-4a54-a27c-02bf3b3eab6e
+https://github.com/mantreshkhurana/twitter-toxicity-detection-flask/assets/120998049/cf208fb8-6a38-4cc8-b10a-267d952a292b
 
 ### Screenshots
 
