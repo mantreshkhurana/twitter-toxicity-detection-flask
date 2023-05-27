@@ -3,10 +3,19 @@
   <head>
     <title>Twitter Toxicity Detection</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
-    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <style>
+      .bot-protection {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .bot-protection input[type="number"] {
+        margin-right: 10px;
+      }
+    </style>
   </head>
   <body class="light">
     <header>
@@ -42,8 +51,21 @@
             value="10"
             required
           />
-          <button type="submit">Search</button>
+          <button type="submit" id="search-button" disabled>Search</button>
         </div>
+      </form>
+    </div>
+
+    <div class="bot-protection">
+      <form>
+        <span id="bot-calculation"></span>
+        <input
+          type="number"
+          placeholder="Solution..."
+          name="bot_protection"
+          required
+        />
+       
       </form>
     </div>
 
@@ -57,5 +79,30 @@
     </footer>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var botProtectionInput = document.querySelector(
+          'input[name="bot_protection"]'
+        );
+        var botCalculation = document.getElementById("bot-calculation");
+        var searchButton = document.getElementById("search-button");
+
+        var operand1 = Math.floor(Math.random() * 10) + 1;
+        var operand2 = Math.floor(Math.random() * 10) + 1;
+        var operator = Math.random() < 0.5 ? "+" : "-";
+        var result = operator === "+" ? operand1 + operand2 : operand1 - operand2;
+
+        botCalculation.textContent =
+        operand1 + " " + operator + " " + operand2;
+
+        botProtectionInput.addEventListener("input", function () {
+          if (parseInt(botProtectionInput.value) === result) {
+            searchButton.disabled = false;
+          } else {
+            searchButton.disabled = true;
+          }
+        });
+      });
+    </script>
   </body>
 </html>
