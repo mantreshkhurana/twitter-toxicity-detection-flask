@@ -360,3 +360,13 @@ p {
 .error-info{
   margin-bottom: -20px;
 }
+
+.tweet-media img {
+  width: 350px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.tweet a {
+  color: blue;
+}

@@ -11,11 +11,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
-    <style>
-      .tweet a {
-        color: blue;
-      }
-    </style>
   </head>
   <body class="light">
     <header>
@@ -48,35 +43,53 @@
       <hr />
 
       {% for tweet in tweets %}
-      <div
-        class="tweet {% if is_toxic(tweet.full_text) %}red{% else %}green{% endif %}"
-      >
+      <div class="tweet {% if is_toxic(tweet.full_text) %}red{% else %}green{% endif %}">
         <div class="avatar">
-          <img
-            src="{{ tweet.user.profile_image_url_https }}"
-            alt="{{ tweet.user.name }}"
-          />
+          <img src="{{ tweet.user.profile_image_url_https }}" alt="{{ tweet.user.name }}" />
         </div>
         <div class="content">
           <div class="header">
             <span class="name">{{ tweet.user.name }}</span>
             <span class="username">@{{ tweet.user.screen_name }}</span>
-            <span class="timestamp"
-              >{{ tweet.created_at.strftime('%I:%M %p - %d %b %Y') }}</span
-            >
+            <span class="timestamp">{{ tweet.created_at.strftime('%I:%M %p - %d %b %Y') }}</span>
           </div>
           <p class="tweet-text">
             {% if 'http' in tweet.full_text %}
-            {% for word in tweet.full_text.split() %}
-            {% if 'http' in word %}
-            <a href="{{ word }}" target="_blank">{{ word }}</a>
+              {% for word in tweet.full_text.split() %}
+                {% if 'http' in word %}
+                  <a href="{{ word }}" target="_blank">{{ word }}</a>
+                {% else %}
+                  {{ word }}
+                {% endif %}
+              {% endfor %}
             {% else %}
-            {{ word }}{% endif %}
-            {% endfor %}
-            {% else %}
-            {{ tweet.full_text }}
+              {% if 'RT' in tweet.full_text %}
+                {{ tweet.full_text.replace('RT', 'Retweet Symbol') }}
+              {% else %}
+                {{ tweet.full_text }}
+              {% endif %}
             {% endif %}
           </p>
+          
+          <div class="tweet-media">
+            {% if tweet.entities.media is defined %}
+              {% for media in tweet.entities.media %}
+                {% if media.type == 'photo' %}
+                  <img src="{{ media.media_url_https }}" alt="Tweet Image" />
+                {% elif media.type == 'video' %}
+                  <video controls>
+                    {% for variant in media.video_info.variants %}
+                      {% if variant.content_type == 'video/mp4' %}
+                        <source src="{{ variant.url }}" type="video/mp4" />
+                      {% endif %}
+                    {% endfor %}
+                    Your browser does not support the video tag.
+                  </video>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          </div>
+
           <div class="actions">
             <i class="far fa-heart"></i>
             <span class="count">{{ format_number(tweet.favorite_count) }}</span>
@@ -85,7 +98,8 @@
           </div>
         </div>
       </div>
-      {% endfor %}
+    {% endfor %}
+
     </div>
     <br><br>
     <footer>
