@@ -4,18 +4,6 @@
     <title>Twitter Toxicity Detection</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-    <style>
-      .bot-protection {
-        margin-top: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-      }
-      .bot-protection input[type="number"] {
-        margin-right: 10px;
-      }
-    </style>
   </head>
   <body class="light">
     <header>
@@ -65,10 +53,11 @@
           name="bot_protection"
           required
         />
-       
+        <span class="error-message" id="bot-protection-error" style="display: none;">Invalid solution</span>
       </form>
+      <p>Complete the solution before searching.</p>
     </div>
-
+    
     <footer>
       <p>
         Created by
@@ -81,25 +70,25 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        var botProtectionInput = document.querySelector(
-          'input[name="bot_protection"]'
-        );
+        var botProtectionInput = document.querySelector('input[name="bot_protection"]');
         var botCalculation = document.getElementById("bot-calculation");
         var searchButton = document.getElementById("search-button");
+        var errorSpan = document.getElementById("bot-protection-error");
 
         var operand1 = Math.floor(Math.random() * 10) + 1;
         var operand2 = Math.floor(Math.random() * 10) + 1;
         var operator = Math.random() < 0.5 ? "+" : "-";
         var result = operator === "+" ? operand1 + operand2 : operand1 - operand2;
 
-        botCalculation.textContent =
-        operand1 + " " + operator + " " + operand2;
+        botCalculation.textContent = operand1 + " " + operator + " " + operand2;
 
         botProtectionInput.addEventListener("input", function () {
           if (parseInt(botProtectionInput.value) === result) {
             searchButton.disabled = false;
+            errorSpan.style.display = "none";
           } else {
             searchButton.disabled = true;
+            errorSpan.style.display = "block";
           }
         });
       });

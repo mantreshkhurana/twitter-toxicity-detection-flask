@@ -395,12 +395,16 @@ p {
 
 .bot-protection input[type="number"] {
   padding: 8px;
-  border: 1px solid #ddd;
+  border:none;
+  outline: none;
   border-radius: 10px;
   font-size: 16px;
   width: 180px;
   max-width: 100%;
   margin-bottom: 10px;
+  background: #f7f7f7;
+  color: #333;
+  border-color: #ccc;
 }
 
 body.dark .bot-protection input[type="number"] {
@@ -410,4 +414,38 @@ body.dark .bot-protection input[type="number"] {
   border-radius: 10px;
 }
 
+.bot-protection {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
+.error-message {
+  color: red;
+}
+
+.bot-protection {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.bot-protection input[type="number"] {
+  margin-right: 10px;
+}
+
+.bot-protection p {
+  font-size: 14px;
+}
+
+.light .bot-protection p {
+  color: #000;
+}
+
+.dark .bot-protection p {
+  color: #ddd;
+}

@@ -9,6 +9,7 @@ This is a Flask web application that allows users to search for a Twitter user's
 - [Twitter Toxicity Detection Flask](#twitter-toxicity-detection-flask)
   - [Demo](#demo)
   - [Installation](#installation)
+  - [Features](#features)
   - [Project Structure](#project-structure)
   - [Contributing](#contributing)
   - [Author](#author)
@@ -28,7 +29,7 @@ https://github.com/mantreshkhurana/twitter-toxicity-detection-flask/assets/12099
 
 You can see a pie chart which portrays the percentage of tweets that are toxic and non-toxic. It can be viewed by clicking on the view Pie Chart button which is located bellow `following` and `followers` count.
 
-<img src="./assets/screenshots/screenshot-3.png" width="300">
+<img src="./assets/screenshots/screenshot-3-chart.png" width="300">
 
 ## Installation
 
@@ -67,6 +68,17 @@ python3 app.py
 ```
 
 Navigate to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in your web browser to use the app, else `flask run -p 8000`.
+
+## Features
+
+- [x] Search for a Twitter user's recent tweets.
+- [ ] Get a toxicity score for each tweet.
+- [x] View a pie chart for profile's toxicity.
+- [x] View user's profile picture, name, username, bio, location, website, following, followers, and tweet count.
+- [x] View images/videos in tweets.
+- [x] View retweets and likes count for each tweet.
+- [x] View the date and time of each tweet.
+- [x] View the source of each tweet.
 
 ## Project Structure
 
