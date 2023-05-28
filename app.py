@@ -7,12 +7,13 @@ from dotenv import load_dotenv
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 
-# Set debug to False when deploying to production
-debug = True
-
 load_dotenv()
 
-# Set up Tweepy API client
+debug = os.getenv('DEBUG_MODE').lower() == 'true'
+
+print('Debug mode: ' + str(debug))
+
+# set up Tweepy API client
 consumer_key = os.getenv('CONSUMER_KEY')
 consumer_secret = os.getenv('CONSUMER_SECRET')
 access_token = os.getenv('ACCESS_TOKEN')
@@ -22,10 +23,10 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
 api = tweepy.API(auth)
 
-# Load the CSV file into a DataFrame
+# load the CSV file into a DataFrame
 df = pd.read_csv('models/hate_speech_model.csv')
 
-# Split the data into feature and target variables
+# split the data into feature and target variables
 x = df['text']
 y = df['is_toxic']
 
@@ -43,12 +44,9 @@ x_train, x_test, y_train, y_test = train_test_split(
 model = LogisticRegression()
 model.fit(x_train, y_train)
 
-# Get input parameters from request
 app = Flask(__name__)
 
-# Function to format number
-
-
+# function to format number
 def format_number(num):
     if num < 1000:
         return str(num)
@@ -59,9 +57,7 @@ def format_number(num):
     else:
         return '{:.1f}B'.format(num / 1000000000)
 
-# Function to check if a tweet contains hate speech
-
-
+# function to check if a tweet contains hate speech
 def is_toxic(text):
     vec = vectorizer.transform([text])
     percentage = round((model.predict_proba(vec)[0][1] * 100), 2)
@@ -71,13 +67,10 @@ def is_toxic(text):
     else:
         return False
 
-# Flask app setup
-
-
+# flask app setup
 @app.route('/')
 def index():
     return render_template('index.html')
-
 
 @app.route('/results', methods=['GET', 'POST'])
 def results():
@@ -87,7 +80,7 @@ def results():
     username = request.form['username']
     posts = int(request.form['posts'])
 
-    # Get tweets from Twitter API
+    # get tweets from Twitter API
     tweets = []
     try:
         for tweet in tweepy.Cursor(api.user_timeline, screen_name=username, tweet_mode='extended').items(posts):
@@ -95,19 +88,19 @@ def results():
     except tweepy.TweepyException as e:
         return render_template('error.html', error=str(e))
 
-    # Perform hate speech detection on the tweets
+    # perform hate speech detection on the tweets
     labels = [is_toxic(tweet.full_text) for tweet in tweets]
 
-    # Compute hate speech detection metrics
+    # compute hate speech detection metrics
     num_hateful = sum(labels)
     num_total = len(tweets)
     hate_speech_ratio = num_hateful / num_total * 100
 
-    # Compute the average toxicity percentage
+    # compute the average toxicity percentage
     toxicity = sum([model.predict_proba(vectorizer.transform([tweet.full_text]))[
                    0][1] for tweet in tweets]) / num_total
 
-    # Get user's followers and following
+    # get user's followers and following
     user = api.get_user(screen_name=username)
 
     name = user.name
@@ -115,11 +108,11 @@ def results():
     followers_count = user.followers_count
     following_count = user.friends_count
 
-    # Convert the counts to K, M, or B format
+    # convert the counts to K, M, or B format
     followers_count = format_number(followers_count)
     following_count = format_number(following_count)
 
-    # Render the results template
+    # render the results template
     return render_template('results.html',
         username=username,
         posts=posts,
