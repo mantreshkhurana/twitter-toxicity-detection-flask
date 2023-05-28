@@ -79,6 +79,7 @@ Navigate to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in your web browser
 - [x] View retweets and likes count for each tweet.
 - [x] View the date and time of each tweet.
 - [x] View the source of each tweet.
+- [x] Twitter like feed.
 - [x] Simple bot protection.
 - [ ] Get a toxicity score for each tweet.
 - [ ] Images/Videos toxicity detection.
