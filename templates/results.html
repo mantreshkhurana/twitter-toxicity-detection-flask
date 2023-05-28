@@ -40,7 +40,9 @@
         <a href="#"><i class="fas fa-chart-pie"></i></a>
       </div>
 
-      <hr />
+      <br>
+      <hr>
+      <br>
 
       {% for tweet in tweets %}
       <div class="tweet {% if is_toxic(tweet.full_text) %}red{% else %}green{% endif %}">
@@ -51,6 +53,7 @@
           <div class="header">
             <span class="name">{{ tweet.user.name }}</span>
             <span class="username">@{{ tweet.user.screen_name }}</span>
+            <br>
             <span class="timestamp">{{ tweet.created_at.strftime('%I:%M %p - %d %b %Y') }}</span>
           </div>
           <p class="tweet-text">

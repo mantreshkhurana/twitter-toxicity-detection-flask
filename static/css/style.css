@@ -216,14 +216,23 @@ p {
 
 .tweet {
   border: 1px solid #ddd;
+  width: 480px;
   border-radius: 10px;
   margin-bottom: 20px;
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
-  padding: 10px;
+  padding: 15px;
   display: flex;
   justify-content: flex-start;
+  margin: 0 auto;
+}
+
+hr {
+  height: 1px;
+  border: none;
+  background-color: #ccc;
+  margin: 10px 0;
 }
 
 .tweet .avatar img {
