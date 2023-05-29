@@ -74,7 +74,7 @@ Navigate to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in your web browser
 - [x] Search for a Twitter user's recent tweets.
 - [x] Dark/Light mode.
 - [x] View a pie chart for profile's toxicity.
-- [x] View user's profile picture, name, username, bio, location, website, following, followers, and tweet count.
+- [x] View user's profile picture, name, username, bio, location, website, following, followers, and tweet count*.
 - [x] View images/videos in tweets.
 - [x] View retweets and likes count for each tweet.
 - [x] View the date and time of each tweet.
