@@ -112,6 +112,12 @@ def results():
     followers_count = format_number(followers_count)
     following_count = format_number(following_count)
 
+    # variable tweet_url to store tweet URLs
+    for tweet in tweets:
+        tweet_url = 'https://twitter.com/{}/status/{}'.format(
+            username, tweet.id_str)
+        tweet.tweet_url = tweet_url
+
     # render the results template
     return render_template('results.html',
         username=username,
@@ -126,6 +132,7 @@ def results():
         followers_count=followers_count,
         following_count=following_count,
         name=name,
+        tweet_url=tweet_url,
     )
 
 if __name__ == '__main__':

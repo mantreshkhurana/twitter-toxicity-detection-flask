@@ -458,3 +458,15 @@ body.dark .bot-protection input[type="number"] {
 .dark .bot-protection p {
   color: #ddd;
 }
+
+.rounded-icon {
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    padding: 6px;
+}
+
+.tweet-url {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
