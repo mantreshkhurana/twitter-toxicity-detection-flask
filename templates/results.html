@@ -61,13 +61,12 @@
             {% endfor %}
           {% else %}
             {% if 'RT' in tweet.full_text %}
-              {{ tweet.full_text.replace('RT', 'Retweet Symbol') }}
+              {{ tweet.full_text.replace('RT', 'Retweet') }}
             {% else %}
               {{ tweet.full_text }}
             {% endif %}
           {% endif %}
         </p>
-
         <div class="tweet-media">
           {% if tweet.entities.media is defined %}
             {% for media in tweet.entities.media %}
