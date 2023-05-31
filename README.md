@@ -4,10 +4,16 @@
 
 This is a Flask web application that allows users to search for a Twitter user's recent tweets and get a toxicity score for each tweet using a pre-trained logistic regression model.
 
+It has a [Window GUI](#window-gui) version which can also be used to do the same without opening the browser.
+
 ## Tabel of Contents
 
 - [Twitter Toxicity Detection Flask](#twitter-toxicity-detection-flask)
   - [Demo](#demo)
+    - [Demo Video](#demo-video)
+    - [Screenshots](#screenshots)
+    - [Pie Chart](#pie-chart)
+    - [Window GUI](#window-gui)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Features](#features)
@@ -28,9 +34,15 @@ https://github.com/mantreshkhurana/twitter-toxicity-detection-flask/assets/12099
 | ![App Screenshot](./assets/screenshots/screenshot-1-light.png) | ![App Screenshot](./assets/screenshots/screenshot-1-dark.png)
 | ![App Screenshot](./assets/screenshots/screenshot-2-light.png) | ![App Screenshot](./assets/screenshots/screenshot-2-dark.png)
 
-You can see a pie chart which portrays the percentage of tweets that are toxic and non-toxic. It can be viewed by clicking on the view Pie Chart button which is located bellow `following` and `followers` count.
+### Pie Chart
 
-<img src="./assets/screenshots/screenshot-3-chart.png" width="300">
+You can see a pie chart which portrays the percentage of tweets that are toxic and non-toxic. It can be viewed by clicking on the view Pie Chart button which is located bellow `following` and `followers` count
+
+<a align="left">
+  <img src="./assets/screenshots/screenshot-3-chart.png" width="300">
+</a>
+
+### Window GUI
 
 ![App Screenshot](./assets/screenshots/screenshot-4-app.png)
 
@@ -155,6 +167,7 @@ git push origin <your-branch-name>
 - [Sklearn](https://scikit-learn.org/stable/)
 - [Python](https://www.python.org/)
 - [Tweepy](https://www.tweepy.org/)
+- [pywebview](https://pywebview.flowrl.com/)
 
 ## Author
 
