@@ -32,6 +32,8 @@ You can see a pie chart which portrays the percentage of tweets that are toxic a
 
 <img src="./assets/screenshots/screenshot-3-chart.png" width="300">
 
+![App Screenshot](./assets/screenshots/screenshot-4-app.png)
+
 ## Installation
 
 You may need to install some dependencies before running the program(some of the modules cannot be installed directly by using `requirements.txt`).

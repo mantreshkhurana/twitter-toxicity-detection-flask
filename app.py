@@ -146,7 +146,13 @@ if __name__ == '__main__':
     if args.window:
         import webview
         app.config["TEMPLATES_AUTO_RELOAD"] = True
-        webview.create_window("Twitter Toxicity Detection", app)
+        webview.create_window(
+            "Twitter Toxicity Detection",
+            app,
+            width=850,
+            height=700,
+            min_size=(600, 700),
+        )
         webview.start()
     else:
         app.run(debug=debug, port=args.port)
