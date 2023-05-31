@@ -6,12 +6,19 @@ import tweepy
 from dotenv import load_dotenv
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
+import argparse
 
 load_dotenv()
 
-debug = os.getenv('DEBUG_MODE').lower() == 'true'
+debug = os.getenv('DEBUG_MODE')
 
-print('Debug mode: ' + str(debug))
+# create an argument parser
+parser = argparse.ArgumentParser()
+parser.add_argument("-w", "--window", action="store_true", help="Show the application in a Window GUI.")
+parser.add_argument("-p", "--port", type=int, default=5000, help="Specify the port number, default is 5000.")
+
+# parse the command-line arguments
+args = parser.parse_args()
 
 # set up Tweepy API client
 consumer_key = os.getenv('CONSUMER_KEY')
@@ -136,4 +143,10 @@ def results():
     )
 
 if __name__ == '__main__':
-    app.run(debug=debug)
+    if args.window:
+        import webview
+        app.config["TEMPLATES_AUTO_RELOAD"] = True
+        webview.create_window("Twitter Toxicity Detection", app)
+        webview.start()
+    else:
+        app.run(debug=debug, port=args.port)
