@@ -170,7 +170,7 @@ After forking:
 git clone https://github.com/<your-username>/twitter-toxicity-detection-flask.git
 cd twitter-toxicity-detection-flask
 git checkout -b <your-branch-name>
-# After adding your changes
+# after adding your changes
 git add .
 git commit -m "your commit message"
 git push origin <your-branch-name>
