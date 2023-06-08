@@ -56,6 +56,22 @@ Get Twitter API keys from [here](https://developer.twitter.com/en/docs/twitter-a
 
 To get started with this project, follow these steps:
 
+I recommend using a virtual environment for this project.
+
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+touch .env
+echo "CONSUMER_KEY=<your_twitter_api_consumer_key>" >> .env # replace <your_twitter_api_consumer_key> with your Twitter API consumer key
+echo "CONSUMER_SECRET=<your_twitter_api_consumer_secret>" >> .env # replace <your_twitter_api_consumer_secret> with your Twitter API consumer secret
+echo "ACCESS_TOKEN=<your_twitter_api_access_token>" >> .env # replace <your_twitter_api_access_token> with your Twitter API access token
+echo "ACCESS_TOKEN_SECRET=<your_twitter_api_access_token_secret>" >> .env # replace <your_twitter_api_access_token_secret> with your Twitter API access 
+python app.py
+```
+
+or
+
 ```bash
 git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-flask.git
 cd twitter-toxicity-detection-flask
