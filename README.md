@@ -15,6 +15,8 @@ It has a [Window GUI](#window-gui) version which can also be used to do the same
     - [Pie Chart](#pie-chart)
     - [Window GUI](#window-gui)
   - [Installation](#installation)
+    - [Virtual Environment](#virtual-environment)
+    - [Locally](#locally)
   - [Usage](#usage)
   - [Features](#features)
   - [Project Structure](#project-structure)
@@ -56,6 +58,8 @@ Get Twitter API keys from [here](https://developer.twitter.com/en/docs/twitter-a
 
 To get started with this project, follow these steps:
 
+### Virtual Environment
+
 I recommend using a virtual environment for this project.
 
 ```bash
@@ -70,7 +74,7 @@ echo "ACCESS_TOKEN_SECRET=<your_twitter_api_access_token_secret>" >> .env # repl
 python app.py
 ```
 
-or
+### Locally
 
 ```bash
 git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-flask.git
