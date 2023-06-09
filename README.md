@@ -63,6 +63,8 @@ To get started with this project, follow these steps:
 I recommend using a virtual environment for this project.
 
 ```bash
+git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-flask.git
+cd twitter-toxicity-detection-flask
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
