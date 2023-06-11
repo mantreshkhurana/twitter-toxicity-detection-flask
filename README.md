@@ -44,6 +44,14 @@ You can see a pie chart which portrays the percentage of tweets that are toxic a
   <img src="./assets/screenshots/screenshot-3-chart.png" width="300">
 </a>
 
+## API Keys Popup
+
+After saving the API keys, you can close the popup and restart the flask server.
+
+| Light | Dark |
+| :---: | :---: |
+| ![App Screenshot](./assets/screenshots/screenshot-5-popup-light.png) | ![App Screenshot](./assets/screenshots/screenshot-5-popup-dark.png)
+
 ### Window GUI
 
 ![App Screenshot](./assets/screenshots/screenshot-4-app.png)
@@ -141,7 +149,7 @@ python app.py -p 8000
 - [x] Twitter like feed.
 - [x] Simple bot protection.
 - [x] GUI Window Added.
-- [ ] Dialog to store API Keys in `.env`.
+- [x] Dialog to store API Keys in `.env`.
 - [ ] Images/Videos toxicity detection.
 
 ## Project Structure
