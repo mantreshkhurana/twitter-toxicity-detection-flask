@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from sklearn.model_selection import train_test_split
 import tweepy
 from dotenv import load_dotenv
@@ -141,6 +141,25 @@ def results():
         name=name,
         tweet_url=tweet_url,
     )
+
+@app.route('/api/keys', methods=['GET', 'POST'])
+def api_keys():
+    if request.method == 'GET':
+        api_keys = {
+            'CONSUMER_KEY': os.getenv('CONSUMER_KEY'),
+            'CONSUMER_SECRET': os.getenv('CONSUMER_SECRET'),
+            'ACCESS_TOKEN': os.getenv('ACCESS_TOKEN'),
+            'ACCESS_TOKEN_SECRET': os.getenv('ACCESS_TOKEN_SECRET')
+        }
+        return jsonify(api_keys)
+    elif request.method == 'POST':
+        api_keys = request.json
+        with open('.env', 'w') as f:
+            f.write(f"CONSUMER_KEY={api_keys['CONSUMER_KEY']}\n")
+            f.write(f"CONSUMER_SECRET={api_keys['CONSUMER_SECRET']}\n")
+            f.write(f"ACCESS_TOKEN={api_keys['ACCESS_TOKEN']}\n")
+            f.write(f"ACCESS_TOKEN_SECRET={api_keys['ACCESS_TOKEN_SECRET']}\n")
+        return jsonify({'message': 'API keys saved successfully'})
 
 if __name__ == '__main__':
     if args.window:

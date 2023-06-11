@@ -102,6 +102,9 @@
   <div id="popup" class="popup">
     <form class="popup-content">
       <h3>API Keys</h3>
+      <p>
+        Restart the server after saving the API keys.
+      </p>
       <span class="close">&times;</span>
       <input type="text" id="consumerKey" name="consumerKey" placeholder="Consumer Key">
       <input type="text" id="consumerSecret" name="consumerSecret" placeholder="Consumer Secret">
@@ -125,6 +128,58 @@
 
     document.querySelector('.close').addEventListener('click', function() {
       document.getElementById('popup').style.display = 'none';
+    });
+  </script>
+
+  <script>
+    document.getElementById('popup-button').addEventListener('click', function() {
+      document.getElementById('popup').style.display = 'block';
+    });
+
+    document.querySelector('.close').addEventListener('click', function() {
+      document.getElementById('popup').style.display = 'none';
+    });
+
+    async function fetchApiKeys() {
+      const response = await fetch('/api/keys');
+      const data = await response.json();
+      return data;
+    }
+
+    async function saveApiKeys(apiKeys) {
+      const response = await fetch('/api/keys', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(apiKeys)
+      });
+      const data = await response.json();
+      return data;
+    }
+
+    async function fillApiKeys() {
+      const apiKeys = await fetchApiKeys();
+      document.getElementById('consumerKey').value = apiKeys.CONSUMER_KEY;
+      document.getElementById('consumerSecret').value = apiKeys.CONSUMER_SECRET;
+      document.getElementById('accessToken').value = apiKeys.ACCESS_TOKEN;
+      document.getElementById('accessTokenSecret').value = apiKeys.ACCESS_TOKEN_SECRET;
+    }
+
+    document.querySelector('.popup-content').addEventListener('submit', async function(event) {
+      event.preventDefault();
+      const apiKeys = {
+        CONSUMER_KEY: document.getElementById('consumerKey').value,
+        CONSUMER_SECRET: document.getElementById('consumerSecret').value,
+        ACCESS_TOKEN: document.getElementById('accessToken').value,
+        ACCESS_TOKEN_SECRET: document.getElementById('accessTokenSecret').value
+      };
+      await saveApiKeys(apiKeys);
+      document.getElementById('popup').style.display = 'none';
+    });
+
+    document.getElementById('popup-button').addEventListener('click', function() {
+      fillApiKeys();
     });
   </script>
 
