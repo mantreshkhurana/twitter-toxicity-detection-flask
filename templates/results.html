@@ -122,15 +122,37 @@
   </footer>
 
   <script>
-    document.getElementById('popup-button').addEventListener('click', function() {
-      document.getElementById('popup').style.display = 'block';
-    });
-
-    document.querySelector('.close').addEventListener('click', function() {
-      document.getElementById('popup').style.display = 'none';
+    document.querySelector('.chart-button a').addEventListener('click', function() {
+      var popupWindow = window.open('', 'Chart', 'width=450,height=480');
+      var ctx = popupWindow.document.createElement('canvas');
+      popupWindow.document.body.appendChild(ctx);
+      var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ['Non-Hateful', 'Hateful'],
+          datasets: [
+            {
+              data: [100 - {{ hate_speech_ratio }}, {{ hate_speech_ratio }}],
+              backgroundColor: ['#00FF40', '#FF0037'],
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'Hate Speech Ratio',
+            },
+          },
+        },
+      });
+      myPieChart.update();
     });
   </script>
-
+  
   <script>
     document.getElementById('popup-button').addEventListener('click', function() {
       document.getElementById('popup').style.display = 'block';
