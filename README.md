@@ -27,7 +27,7 @@ It has a [Window GUI](#window-gui) version which can also be used to do the same
 
 ### Demo Video
 
-https://github.com/mantreshkhurana/twitter-toxicity-detection-flask/assets/120998049/a7c02aae-5e91-4f84-b7e2-844be2ba13a7
+https://github.com/mantreshkhurana/twitter-toxicity-detection-flask/assets/120998049/dba98bad-50d3-472c-bd22-e4cfe4282425
 
 ### Screenshots
 
