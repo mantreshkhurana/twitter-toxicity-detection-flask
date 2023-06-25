@@ -14,8 +14,8 @@ debug = os.getenv('DEBUG_MODE')
 
 # create an argument parser
 parser = argparse.ArgumentParser()
-parser.add_argument("-w", "--window", action="store_true", help="Show the application in a Window GUI.")
-parser.add_argument("-p", "--port", type=int, default=5000, help="Specify the port number, default is 5000.")
+parser.add_argument("-w", "--window", action="store_true", help="show the application in a Window GUI.")
+parser.add_argument("-p", "--port", type=int, default=5000, help="specify the port number, default is 5000.")
 
 # parse the command-line arguments
 args = parser.parse_args()
