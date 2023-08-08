@@ -24,8 +24,7 @@ def create_env_file():
                 value = input(f'Enter your {key}: ')
                 f.write(f'{key}={value}\n')
                 print(f'{key}={value}')
-
-            print('\nFile created successfully.')
+        print('\nFile created successfully.')
 
 if __name__ == '__main__':
     create_env_file()
