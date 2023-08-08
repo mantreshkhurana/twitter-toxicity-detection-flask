@@ -90,6 +90,16 @@ python app.py
 git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-flask.git
 cd twitter-toxicity-detection-flask
 pip install -r requirements.txt
+python setup.py # fill in the required details for Twitter API keys
+python app.py
+```
+
+or
+
+```bash
+git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-flask.git
+cd twitter-toxicity-detection-flask
+pip install -r requirements.txt
 touch .env
 echo "CONSUMER_KEY=<your_twitter_api_consumer_key>" >> .env # replace <your_twitter_api_consumer_key> with your Twitter API consumer key
 echo "CONSUMER_SECRET=<your_twitter_api_consumer_secret>" >> .env # replace <your_twitter_api_consumer_secret> with your Twitter API consumer secret
