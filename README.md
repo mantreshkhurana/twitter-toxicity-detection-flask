@@ -6,7 +6,7 @@ This is a Flask web application that allows users to search for a Twitter user's
 
 It has a [Window GUI](#window-gui) version which can also be used to do the same without opening the browser.
 
-## Tabel of Contents
+## Table of Contents
 
 - [Twitter Toxicity Detection Flask](#twitter-toxicity-detection-flask)
   - [Demo](#demo)
