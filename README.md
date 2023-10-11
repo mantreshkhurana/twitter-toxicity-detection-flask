@@ -1,4 +1,4 @@
-<img src="./images/logo.png" width="50" height="50">
+<img src="./images/logo_new.png" width="50" height="50">
 
 # Twitter Toxicity Detection Flask
 
