@@ -1,14 +1,14 @@
 <img src="./images/logo_new.png" width="50" height="50">
 
-# Twitter Toxicity Detection Flask
+# X Toxicity Detection Flask
 
-This is a Flask web application that allows users to search for a Twitter user's recent tweets and get a toxicity score for each tweet using a pre-trained logistic regression model.
+This is a Flask web application that allows users to search for a X user's recent tweets and get a toxicity score for each tweet using a pre-trained logistic regression model.
 
 It has a [Window GUI](#window-gui) version which can also be used to do the same without opening the browser.
 
 ## Table of Contents
 
-- [Twitter Toxicity Detection Flask](#twitter-toxicity-detection-flask)
+- [X Toxicity Detection Flask](#twitter-toxicity-detection-flask)
   - [Demo](#demo)
     - [Demo Video](#demo-video)
     - [Screenshots](#screenshots)
@@ -203,7 +203,7 @@ git push origin <your-branch-name>
 ## Credits
 
 - [Flask](https://www.fullstackpython.com/flask.html)
-- [Twitter](https://twitter.com/)
+- [X](https://twitter.com/)
 - [Sklearn](https://scikit-learn.org/stable/)
 - [Python](https://www.python.org/)
 - [Tweepy](https://www.tweepy.org/)
